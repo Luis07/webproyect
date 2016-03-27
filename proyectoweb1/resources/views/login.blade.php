@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-    <head>
-        <title>Webmail</title>
-
-        </head>
-    <body>
-    <form name="frm_login">
+@extends('layouts.principal')
+@section('content')
+<form name="frm_login" method="POST"action="{{asset('login')}}" >
         <div class="container">
             <div class="content">
                 <div>
@@ -22,5 +16,4 @@
             </div>
         </div>
     </form>
-    </body>
-</html>
+   @stop

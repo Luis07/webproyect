@@ -3,6 +3,7 @@ body
 {
 	padding: 0%;
 	margin: 0%;
+	background-color:wheat; 
 }
 /*da estilo al h1 del frm registro */
 h1.h1registro
@@ -15,13 +16,13 @@ h1.h1registro
 /*estilo para todos los botones*/
 button
 {
-	width: 112%;
-	height: 42px;
+	width: 25%;
+	height: 45px;
 }
 /*estilo del btn login accept*/
 button.log_accept
 {
-	margin-left: -100%;
+	margin-left: -85%;
 }
 /*estilo del div btn accept registro*/
 div.div_btn_acept_register
@@ -48,20 +49,127 @@ div.div_btn_cancel_register
 	padding: 0px;
 	box-shadow: 0px 0px 0px 14px #999;
 }
+/*para colocar color al mensaje mostrado si hay error*/
 .errorfields
 {
 	color: red;
 }
-.borde
+/*clase para la posicion del modal del boton redactar*/
+.derecha{
+	margin-top: 9.2%;
+	margin-right: -51%;
+}
+.footnewmensaje{
+	margin-right: 14%;
+}
+/*para modificar el titulo que trae el nombre del correo 'mailto'*/
+.navtitulo
+{
+	margin-top: -1.6%;
+	width: 100%;
+}
+/*para darle color al nav del titulo del correo*/
+.navtitulo.color{
+	background-color: #A18FFF;
+}
+/*para darle posicion a los botones de borrador,salida,enviados*/
+.posicion.navt{
+	margin-top: -2%;    
+	margin-left: 0;
+}
+/*para colocar al menú que desplegara los botones de pestañas salida,borrador,enviados*/
+.btnmenu{
+	width:4%;
+	padding-left: -1%;
+	border-radius: inherit;
+}
+/*para poner color al momento del mouse hover*/
+.btnmenu:hover{
+	background-color:#2F45FC;
+}
+/*para quitar color al momento del mouse hover*/
+.btnmenu:not(:hover){
+	background-color:inherit;
+}
+/*para la posicion del boton redactar*/
+.botonnuevot
+{
+	width: 46.7%;
+	margin-top: -1%;
+	background-color: aqua;
+}
+/*evento hover del bton redactar*/
+.botonnuevo:hover
+{
+	color: brown;
+	background-color: aqua;
+}
+/*para la posicion de los botones redactar,salida,enviados*/
+.divbandejas
+{
+	padding-left: 0%;
+	margin-top: 0.1%;
+	padding-bottom: 0.2%;
+}
+/*para los redactar ,salida,borrador*/	
+.bajarunpoco.grande
+{
+	width: 159%;	
+	color: brown;
+	background-color:transparent;
+}
+/*hover de botones salida,borrador,enviados*/
+.bajarunpoco.grande:hover{
+	background-color: aqua;
+}
+/*quitar fondo a los botones salida,enviados,redactar,borrador*/
+.quitarfondo{
+	border: inherit;
+	color: black;	
+}
+/*dar color a los botones*/
+.btnmenucolor{
+	width: 159%;	
+	background-color: aqua;
+}
+/*quitar color a los botones*/
+.btnmenusincolor{
+	background-color:transparent;		
+}
+/*para la parte donde se ven los correos*/		
+.vermensajes
+{
+	margin-left: 20%;
+	margin-top: -15%;
+	width: 35%;
+}
+/*para que al ocultar el menú no se oculten los mensajes*/
+.vermensajeshide{
+margin-left: 20%;
+	margin-top: -1.8%;
+	width: 35%;
+}
+.nlban
+{
+	margin-left: 59%;
+	margin-top: -6%;
+	width: 25%;
+	font-size: 180%;
+	text-align:center;
+	color: white;
+}
+/*para el textoque indica al usuario como ver correos*/
+
+/*.borde
 {
 	width: 40%;
 	margin-top: 6%;
 	padding-top: 8%;
-	margin-left: 24%;
-	background-color: black;
+	margin-und-color: black;
 	border: solid black;
 	color: whitesmoke;
 }
+*/
 
 .login
 {
@@ -131,246 +239,145 @@ div.div_btn_cancel_register
 {
 	width: 22%;
 }
-.divbandejas
+.colorbandenv{
+	background-color: #402D1C;
+}
+.bandejas
+{        
+	width: 16%;
+	margin-top: 12%;
+	margin-left: -10%;
+}
+.bandejas.de
 {
-	margin-left:0;
-	padding-left: 0%;
-	width: 20%;
+	text-decoration: none;
+
+}
+.posicion
+{
+	margin-left: -17.6%;
+}
+.h2{
+	margin-left: -9%;
+}
+.h1{
+	margin-left: -9%;
+}
+.colorfondo{
+
+	padding-left: 13%;
+}
+.fotoonline
+{
+	margin-top: -65px;
+	width: 8%;
+	float: right;
+	margin-right: -13px;
+	height: 66px;
+}
+.nombre
+{
+	margin-left: 88%;
+	margin-top: -4%;
+	margin-right: 7%;
+	background-color: white;
+}							
+.divbtnn
+{
+	margin-top: -1.7%;
+}
+.color.marcado.bandejas
+{
+	color: black;
+	background-color:#26201B;
+	margin-left: -5%;
 	margin-top: 0.1%;
-	padding-bottom: 0.2%;
-	height: 119px;
-	}.colorbandenv{
-		background-color: #402D1C;
-	}
-	.bandejas
-	{        
-		width: 16%;
-		margin-top: 12%;
-		margin-left: -10%;
-	}
-	.bandejas.de
-	{
-		text-decoration: none;
+	width: 110.1%;
+}
+td
+{
+	margin-left: 74%;
+	border-bottom: solid lavender;
+}
+.divbtn
+{
+	display: none;
+	float: right;
+	margin-top: -12%;
+	margin-right: 11%;
+}
+.divbtn.edit
+{
+	float: right;
+	margin-top: -12%;
+	margin-right: 3%;
+}
+td:hover
+{
+	background-color:grey;
+}
+.leercorreos
+{
+	display: none;
+	margin-top: -26%;
+	width: 66%;
+	height: 460px;
+	background-color: white;
+}
 
-	}
-	.navtitulo
-	{
-		padding: 0;
-		margin-left:;
-		width: 100%;
 
-	}
-	.navtitulo.color{
-		background-color: #26201B;
-		color: white;
-	}
-	.posicion.nombresband
-	{
-		margin-left: 20%;
-		margin-top: -10.5%;	
-		width: 79.9%;
-		height: 90px;
-		padding-top: 2%;
-		text-align: left;
-	}
-	.derecha{
-		margin-top: 9.2%;
-		margin-right: -59.3%;
-	}
-	.posicion
-	{
-		margin-left: -17.6%;
-	}
-	.nlban.p 
-	{
-		margin-left: 67%;
-		margin-top: 6%;
-		width: 23%;
-		height: 90px;
-		padding-left: 7%;
-		font-size: 200%;
-		color: white;
-	}
-	.nlban{
-		margin-left: -19%;
-	}
-	.h2{
-		margin-left: -9%;
-	}
-	.h1{
-		margin-left: -9%;
-	}
-	.posicion.navt{
-		margin-top: -1.3%;    
-		width: 100%;
-		height: 40px;
-		margin-left: 0;
-		padding-top: 1%;
-	}
-	.colorfondo{
+/***box-shadow: 10px 0px 50px #999;***/
 
-		padding-left: 13%;
-	}
-	.fotoonline
-	{
-		margin-top: -65px;
-		width: 8%;
-		float: right;
-		margin-right: -13px;
-		height: 66px;
-	}
-	.nombre
-	{
-		margin-left: 88%;
-		margin-top: -4%;
-		margin-right: 7%;
-		background-color: white;
-	}
-
-	.bajarunpoco
-	{
-		padding-top: 5%;
-		width: 93%;
-		height: 40px;
-		padding-left: 7%;
-	}		
-	.bajarunpoco.grande
-	{
-		width: 109%;	
-	}								
-	.color.marcado
-	{
-		color: red;
-		background-color:#A68B6A;
-	}
-	.bajarunpoco.grande:hover{
-		background-color: #A68B6A;
-	}
-	.divbtnn
-	{
-		margin-top: -1.7%;
-	}
-	.colornuevo
-	{
-		color: white;
-	}
+.divmensa
+{
+	margin-left: 1%;
+	width: 98%;
+}
+@media only screen and (max-width: 627px) {
 	.botonnuevot
 	{
-		width: 9%;
+		width: 30%;
 		height: 39px;
 		margin-top: -1%;
-		margin-left: 5%;
-		background-color: #BFB8B0;
-	}
-	.containerborde
-	{
-		border-right:solid #73614C;
-	}
-	.botonnuevo:hover
-	{
-		background-color:grey;
-	}
-	.color{
-		color:#73614C;
-	}
-	.color.marcado.bandejas
-	{
-		color: black;
-		background-color:#26201B;
-		margin-left: -5%;
-		margin-top: 0.1%;
-		width: 110.1%;
-	}
-	td
-	{
-		margin-left: 74%;
-		border-bottom: solid lavender;
-	}
-	.divbtn
-	{
-		display: none;
-		float: right;
-		margin-top: -12%;
-		margin-right: 11%;
-	}
-	.divbtn.edit
-	{
-		float: right;
-		margin-top: -12%;
-		margin-right: 3%;
-	}
-	td:hover
-	{
-		background-color:grey;
-	}
-	.leercorreos
-	{
-		display: none;
-		margin-top: -26%;
-		width: 66%;
-		height: 460px;
-		background-color: white;
-	}
-
-	.vermensajes
-	{
-		/***width: 29%;***/
-		width: 50%;
-		margin-left: 11.3%;
-		margin-top: -21.7%;
-	}
-	/***box-shadow: 10px 0px 50px #999;***/
-	
-	.divmensa
-	{
 		margin-left: 1%;
-		width: 98%;
-	}
-	@media only screen and (max-width: 627px) {
-		.botonnuevot
+		background-color: #BFB8B0;
+		}.bajarunpoco.grande
 		{
-			width: 30%;
-			height: 39px;
-			margin-top: -1%;
-			margin-left: 1%;
-			background-color: #BFB8B0;
-			}.bajarunpoco.grande
-			{
-				width: 354%;	
-				font-size: 1em;
-			}
-			.nlban.p 
-			{
-				display: none;				
-			}
-			.posicion.nombresband
-			{
-				display: none;
-			}
-			.vermensajes
-			{
-				/***width: 29%;***/
-				width: 105%;
-				margin-left: -2%;
-				margin-top: -8.7%;
-			}
-			.divbtnn
-			{
-				margin-top: -20%;
-				margin-right: 8%;
-			}
-			.divbtn.edit
-			{
-				float: right;
-				margin-top: -22%;
-				margin-right: 3%;
-			}
-			.derecha{
-				margin-top: 19.2%;
-				margin-right: -10%;
-				width: 100%;
-			}
-			.sombra{
-				box-shadow: 0px 0px 0px #999;
-			}
+			width: 354%;	
+			font-size: 1em;
 		}
+		.nlban.p 
+		{
+			display: none;				
+		}
+		.posicion.nombresband
+		{
+			display: none;
+		}
+		.vermensajes
+		{
+			/***width: 29%;***/
+			width: 105%;
+			margin-left: -2%;
+			margin-top: -8.7%;
+		}
+		.divbtnn
+		{
+			margin-top: -20%;
+			margin-right: 8%;
+		}
+		.divbtn.edit
+		{
+			float: right;
+			margin-top: -22%;
+			margin-right: 3%;
+		}
+		.derecha{
+			margin-top: 19.2%;
+			margin-right: -10%;
+			width: 100%;
+		}
+		.sombra{
+			box-shadow: 0px 0px 0px #999;
+		}
+	}

@@ -17,10 +17,21 @@ Route::get('/', function () {
 Route::get('login', function () {
     return view('login');
 });
+Route::get('correo', function () {
+    return view('correo');
+});
 Route::get('registro', function () {
     return view('registro');
 });
-Route::post('registrou','user_controller@save_registro');
+
+Route::get('confirmregistro', function () {
+    return view('confirm_register', ['email' =>'Correo invalido']);
+});
+Route::Post('conf_registro','UserController@validarregistro');
+Route::Post('login','UserController@login');
+Route::get('registro', function () {
+    return view('registro', ['name' => '','lastname' =>'','error' =>'']);});
+Route::post('registro','UserController@save');
 Route::get('mail/{para}/{asunto}/{contenido}','MailController@Send_mail_confirm_registro',function (){
     return view('login');	
 });

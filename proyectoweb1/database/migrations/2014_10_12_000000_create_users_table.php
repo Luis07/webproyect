@@ -17,12 +17,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('password', 60);
+            $table->string('password', 700);
             $table->string('state')->default('false');
             $table->rememberToken();
             $table->timestamps();
         });
-    }
+    }s
 
     /**
      * Reverse the migrations.

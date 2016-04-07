@@ -4,10 +4,10 @@
         <div class="container">
             <div class="content">
                 <div>
-                    <input name="email" type="mail" placeholder="Email"></input>
+                    <input name="email" type="mail" placeholder="Email" required></input>
                 </div>
                  <div>
-                    <input name="password" type="password" placeholder="Password"></input>
+                    <input name="password" type="password" placeholder="Password" required></input>
                 </div>
                 <div>
                     <button type="submit">Login</button>

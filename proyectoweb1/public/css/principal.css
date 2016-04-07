@@ -96,7 +96,7 @@ div.div_btn_cancel_register
 {
 	width: 46.7%;
 	margin-top: -1%;
-	background-color: aqua;
+	background-color: inherit;
 }
 /*evento hover del bton redactar*/
 .botonnuevo:hover
@@ -127,6 +127,13 @@ div.div_btn_cancel_register
 	border: inherit;
 	color: black;	
 }
+.colorinicial{
+	width: 159%;	
+	color: brown;
+	background-color: aqua;
+	border: inherit;
+	color: black;	
+}
 /*dar color a los botones*/
 .btnmenucolor{
 	width: 159%;	
@@ -141,23 +148,14 @@ div.div_btn_cancel_register
 {
 	margin-left: 20%;
 	margin-top: -15%;
-	width: 35%;
+	width: 75%;
 }
 /*para que al ocultar el menú no se oculten los mensajes*/
 .vermensajeshide{
 margin-left: 20%;
 	margin-top: -1.8%;
-	width: 35%;
-}
-.nlban
-{
-	margin-left: 59%;
-	margin-top: -6%;
-	width: 25%;
-	font-size: 180%;
-	text-align:center;
-	color: white;
-}
+	width: 75%;
+}	
 /*para el textoque indica al usuario como ver correos*/
 
 /*.borde
@@ -288,8 +286,6 @@ margin-left: 20%;
 }
 .color.marcado.bandejas
 {
-	color: black;
-	background-color:#26201B;
 	margin-left: -5%;
 	margin-top: 0.1%;
 	width: 110.1%;

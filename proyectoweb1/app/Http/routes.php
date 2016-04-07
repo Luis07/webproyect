@@ -12,30 +12,38 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 Route::get('login', function () {
-    return view('login');
+	return view('login');
 });
 Route::get('correo', function () {
-    return view('correo');
+	return view('correo');
+});
+Route::get('correo', function () {
+	return view('correo',['$emails' => '']);
 });
 Route::get('registro', function () {
-    return view('registro');
+	return view('registro');
 });
-
+Route::any('safesalida/{a}/{b}/{c}','MailController@safesalida');
+Route::any('sendsalida/{a}/{b}/{c}','MailController@sendsalida');
 Route::get('confirmregistro', function () {
-    return view('confirm_register', ['email' =>'Correo invalido']);
+	return view('confirm_register', ['email' =>'Correo invalido']);
 });
 Route::Post('conf_registro','UserController@validarregistro');
 Route::Post('login','UserController@login');
 Route::get('registro', function () {
-    return view('registro', ['name' => '','lastname' =>'','error' =>'']);});
+	return view('registro', ['name' => '','lastname' =>'','error' =>'']);});
+Route::get('correo', function () {
+return view('correo')->with(['emails' =>'']);});
 Route::post('registro','UserController@save');
 Route::get('mail/{para}/{asunto}/{contenido}','MailController@Send_mail_confirm_registro',function (){
-    return view('login');	
+	return view('login');	
 });
-
+Route::get('borrador','MailController@Correosborrador');
+Route::get('enviados','MailController@CorreosEnviados');
+Route::get('salida','MailController@CorreosSalida');
 /*
 |--------------------------------------------------------------------------
 | Application Routes

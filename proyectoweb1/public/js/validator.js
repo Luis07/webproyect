@@ -1,83 +1,74 @@
 var Webmail=Webmail||
 {
-	/*funcion para validar el frm de registro*/
-	validar:function() {
+	/*para mostrar los botones de cambio bandejas*/
+	show:function(){
 		debugger;
-		$campos=new Array();
-		$camposfuel=0;
-		Webmail.limpiarcamposerr();
-		$campos[0]=Webmail.validarnombre();
-		$campos[1]=Webmail.validarapellido();
-		$campos[2]=Webmail.validarEmail();	
-		$campos[3]=Webmail.validarpass();
-		for (var i =0; i <$campos.length; i++) {
-			if($campos[i]!="false"){
-				$camposfuel+=1;
-			}
-			if($camposfuel==4&&!document.getElementById('checkterm').checked){
-				$('#check_err').text("Debe aceptar los terminos de servicio de Webmail");
-			}
-			if($camposfuel==4&&document.getElementById('checkterm').checked)
-			{
-				$para=document.getElementById('email').value;
-				$asunto="Confirmacion de Registro";
-				$contenido="Por favor confirme su registro para activar su cuenta en Webmail";
-			window.open('mail/'+$para+'/'+$asunto+'/'+$contenido);
-			self.close('registro');
-			}
-		}
+		document.getElementById('navmenu').style.display = 'block';
+		document.getElementsByClassName('btnmenu')[0].removeAttribute("onclick");
+		document.getElementsByClassName('btnmenu')[0].setAttribute("onclick", "Webmail.hide()");	
+		document.getElementsByClassName('vermensajeshide')[0].className='vermensajes';
 	},
-	/*funcion para ver que el nombre no venga vacio*/
-	validarnombre:function()
-	{
-		if (document.getElementById('nombre').value=="")
-		{
-			$("#name_err").text("Campo requerido");
-			return "false"; 
-		}
+	/*para mostrar los botones de cambio bandejas*/
+	hide:function(){
+		debugger;
+		document.getElementById('navmenu').style.display = 'none';
+		document.getElementsByClassName('btnmenu')[0].removeAttribute("onclick");
+		document.getElementsByClassName('btnmenu')[0].setAttribute("onclick", "Webmail.show()");
+		document.getElementsByClassName('vermensajes')[0].className='vermensajeshide';
 	},
-	/*funcion para validar que el apellido no veng vacio*/
-	validarapellido:function()
-	{
-		if (document.getElementById('apellido').value=="")
-		{
-			$("#apellido_err").text("Campo requerido"); 
-			return "false"; 
-		}
-	},
-	/*funcion para validar la direccion del email*/
-	validarEmail:function(valor) {
-		if(document.getElementById('email').value==""){
-			$('#email_err').text("Campo requerido");
-			return "false"; 
-		}else{
-			expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-			if ( !expr.test(document.getElementById('email').value) ){
-				$('#email_err').text("La direcciÃ³n de email es incorrecta.");
-				return "false";  }
-			}
-		},
-		/*funcion para validar la contraseÃ±a*/
-		validarpass:function()
-		{
-			if(password=document.getElementById('password').value=="")
-			{
-				$('#pass_err').text("Campo requerido"); 
-				return "false"; }else
-				{
-					if(password=document.getElementById('password').value.length<8)
-					{
-						$('#pass_err').text("The password must be have 8 characters");
-						return "false"; 
-					}
-				}
+	/*para cambio de boton cambio de color*/
+	colorbs:function(){
+		debugger
+		document.getElementById('bs').className = 'quitarfondo btn btn-primary btnmenucolor ';
+		document.getElementById('btn_redactar').className = 'quitarfondo btn btn-info botonnuevo botonnuevot glyphicon glyphicon-pencil colornuevo btnmenusincolor ';
+	    document.getElementById('be').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
+	    document.getElementById('bo').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
 			},
-			/*funcion para limpiar los campos de error*/
-			limpiarcamposerr:function(){
-				$("#name_err").text("");
-				$("#apellido_err").text("");
-				$("#email_err").text("");
-				$("#pass_err").text("");
-				$("#check_err").text("");
-			}
-		}
+	/*para cambio de boton cambio de color*/
+	colorbe:function(){
+		debugger
+		document.getElementById('be').className = 'quitarfondo btn btn-primary btnmenucolor ';
+		document.getElementById('btn_redactar').className = 'quitarfondo btn btn-info botonnuevo botonnuevot glyphicon glyphicon-pencil colornuevo btnmenusincolor ';
+	    document.getElementById('bs').className = 'quitarfondo btn btn-ttc bajarunpoco grande btnmenusincolor ';
+		document.getElementById('bo').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
+	},
+	/*para cambio de boton cambio de color*/
+	colorbo:function(){
+		debugger;
+		document.getElementById('bo').className = 'quitarfondo btn btn-primary btnmenucolor ';
+		document.getElementById('btn_redactar').className = 'quitarfondo btn btn-info botonnuevo botonnuevot glyphicon glyphicon-pencil colornuevo btnmenusincolor ';
+	    document.getElementById('bs').className = 'quitarfondo btn btn-ttc bajarunpoco grande btnmenusincolor ';
+	    document.getElementById('be').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
+		},
+	/*para cambio de boton cambio de color*/
+	colorbr:function(){
+		debugger;
+		document.getElementById('btn_redactar').className = 'quitarfondo btn btn-info botonnuevo botonnuevot glyphicon glyphicon-pencil colornuevo';
+	    document.getElementById('bs').className = 'quitarfondo btn btn-ttc bajarunpoco grande btnmenusincolor ';
+		document.getElementById('be').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
+		document.getElementById('bo').className = 'quitarfondo btn btn-primary bajarunpoco grande btnmenusincolor ';
+		},
+		/*para pasar los correos a la bandeja de borrador*/
+		safemail:function(){
+	var a=document.forms["formredactar"]["correo"].value;
+    var b=document.forms["formredactar"]["asuntomensaje"].value;
+    var c=document.forms["formredactar"]["contenidomensaje"].value;
+    if (a==null || a=="",b==null || b=="",c==null || c=="")
+      {
+      alert("Please Fill All Required Field");
+      }else{
+      	window.open('safesalida/'+a+'/'+b+'/'+c);
+      }
+	},	/*para pasar los correos a la bandeja de salida*/
+		sendmail:function(){
+	var a=document.forms["formredactar"]["correo"].value;
+    var b=document.forms["formredactar"]["asuntomensaje"].value;
+    var c=document.forms["formredactar"]["contenidomensaje"].value;
+    if (a==null || a=="",b==null || b=="",c==null || c=="")
+      {
+      alert("Please Fill All Required Field");
+      }else{
+      	window.open('sendsalida/'+a+'/'+b+'/'+c);
+      }
+	}
+}

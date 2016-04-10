@@ -20,14 +20,15 @@ Route::get('login', function () {
 Route::get('correo', function () {
 	return view('correo');
 });
-Route::get('correo', function () {
-	return view('correo',['$emails' => '']);
+Route::get('correo', function () {	
+	return view('correo',['$emails' => '','metodo'=>'']);
 });
 Route::get('registro', function () {
 	return view('registro');
 });
-Route::any('safesalida/{a}/{b}/{c}','MailController@safesalida');
-Route::any('sendsalida/{a}/{b}/{c}','MailController@sendsalida');
+Route::any('safesalida/{a}/{b}/{c}/{d}','MailController@safesalida');
+Route::any('sendsalida/{a}/{b}/{c}/{d}','MailController@sendsalida');
+Route::any('eliminar/{a}','MailController@eliminar');
 Route::get('confirmregistro', function () {
 	return view('confirm_register', ['email' =>'Correo invalido']);
 });

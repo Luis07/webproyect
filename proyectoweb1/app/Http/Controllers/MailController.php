@@ -23,33 +23,28 @@ class MailController extends Controller
 	public function Correosborrador(){
 		$value = Cache::get('user');
 		$correos= DB::table('emails')->select('id','destino','asunto','contenido')->where('email',$value)->where('borrador','1')->get();
-		return view('correo')->with(['emails' => $correos]);
+		return view('/correo')->with(['emails' => $correos,'metodo'=>'Webmail.Mostrarbo']);
 	}
 	/*metodo va a traer los correos envíados*/
 	public function CorreosEnviados(){
 		$value = Cache::get('user');
 		echo "$value";
 		$correos= DB::table('emails')->select('id','destino','asunto','contenido')->where('email',$value)->where('enviados','1')->get();
-		$tabla=$this->Crearformatabla($correos);
+		return view('/correo')->with(['emails' => $correos,'metodo'=>'Webmail.Mostrarbe']);
 	}
 	/*metodo que va a traer los correos de salida*/
 	public function CorreosSalida(){
 		$value = Cache::get('user');
 		echo "$value";
 		$correos= DB::table('emails')->select('id','destino','asunto','contenido')->where('email',$value)->where('salida','1')->get();
-		$tabla=$this->Crearformatabla($correos);
+		return view('correo')->with(['emails' => $correos,'metodo'=>'Webmail.Mostrarbs']);
 	}
-	/*metodo que lleva la estructura de una tabla con los correos*/
-	public function Crearformatabla($correos){
-		$tabla="<br>";
-		echo $tabla;
-		foreach ($correos as $campo) {
-			break;
-			$tabla = $tabla +"<tr id="+"c"+$campo->id+" onclick=LOGIN.mostrarmensajesborrador("+$campo->id+")"+"<td><div class=divmarcado>"+"<p>"+"<h4>"+$campo->destino+"</h4>"+"<h4>"+$campo->asunto+"</h4>"+"<p>"+
-			$campo->contenido+"</p>"
-    +"</p>"+"</div>"+"<div  id="+$campo->id+" class=divbtn ><button onclick=LOGIN.eliminarcorreosborrador("+$campo->id+") type=button class='btn btn-default' aria-label=Left Align><span class="+"'glyphicon glyphicon-trash'"+" aria-hidden=true></span></button></div>"+
-    "</td>+</tr>";
-	}	
+	/*para actualizar la tabla emails*/
+	public function updatemails($para,$asunto,$contenido,$enviado,$borrador,$salida,$id)
+	{
+		DB::table('emails')
+            ->where('id', $id)
+            ->update(['destino' => $para,'asunto'=> $asunto,'contenido'=>$contenido,'enviado' =>$enviado,'borrador' =>$borrador,'salida' =>$salida]);
 	}
 	/*metodo para guardar los correos en la bd*/
 	public function safemails($para,$asunto,$contenido,$enviado,$borrador,$salida){
@@ -65,15 +60,31 @@ class MailController extends Controller
 		$message->save();
 	}
 	/*para guardar los correos en borrador*/
-	public function safesalida($a,$b,$c)
+	public function safesalida($a,$b,$c,$d)
 	{
-		$this->safemails($a,$b,$c,0,1,0);
+		echo $d;
+		if($d==="undefined"){
+			$this->safemails($a,$b,$c,0,1,0);
+		}else{
+			$this->updatemails($a,$b,$c,0,1,0,$d);
+		}
 			return redirect('/correo');
 	}
 	/*para guardar los correos en salida*/
-	public function sendsalida($a,$b,$c)
+	public function sendsalida($a,$b,$c,$d)
 	{
+		if($d==="undefined"){
 		$this->safemails($a,$b,$c,0,0,1);
-			return redirect('/correo');
+		}else{
+			$this->updatemails($a,$b,$c,0,0,1,$d);
+		}
+
+	    return redirect('/correo');
+	}
+	/*metodo para eliminar correos*/
+	public function eliminar($ide)
+	{
+		DB::table('emails')->where('id', '=',$ide)->delete();
+	    return redirect('/correo');
 	}
 }

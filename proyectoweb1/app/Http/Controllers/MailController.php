@@ -13,10 +13,13 @@ use App\Http\Requests;
 class MailController extends Controller
 {
 	//para enviar el correo de confirmacion de registro al usuario
-	public function Send_mail_confirm_registro($para,$asunto,$contenido,$desde)
+	public function Send_mail_confirm_registro($para)
 	{
-		$desde="From:".$desde;
-		Mail($para,$asunto,$contenido,$desde);
+		$data=[];
+		Mail::send('emails', $data, function ($message) use ($para){
+    $message->subject('Confirmar cuenta');
+    $message->to($para);
+});
 		return view('login');	
 	}
 	/*metodo que va a traer los correos de borrador*/
@@ -29,7 +32,7 @@ class MailController extends Controller
 	public function CorreosEnviados(){
 		$value = Cache::get('user');
 		echo "$value";
-		$correos= DB::table('emails')->select('id','destino','asunto','contenido')->where('email',$value)->where('enviados','1')->get();
+		$correos= DB::table('emails')->select('id','destino','asunto','contenido')->where('email',$value)->where('enviado','1')->get();
 		return view('/correo')->with(['emails' => $correos,'metodo'=>'Webmail.Mostrarbe']);
 	}
 	/*metodo que va a traer los correos de salida*/
@@ -62,7 +65,7 @@ class MailController extends Controller
 	/*para guardar los correos en borrador*/
 	public function safesalida($a,$b,$c,$d)
 	{
-		echo $d;
+	
 		if($d==="undefined"){
 			$this->safemails($a,$b,$c,0,1,0);
 		}else{

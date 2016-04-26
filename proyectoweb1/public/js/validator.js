@@ -59,7 +59,9 @@ var Webmail=Webmail||
 		{
 			alert("Please Fill All Required Field");
 		}else{
+			var actual=window.location.href;
 			window.open('safesalida/'+a+'/'+b+'/'+c+'/'+id);
+			window.close(actual);
 		}
 	},	/*para pasar los correos a la bandeja de salida*/
 	sendmail:function($ide){
@@ -72,7 +74,9 @@ var Webmail=Webmail||
 		{
 			alert("Please Fill All Required Field");
 		}else{
+			var actual=window.location.href;
 			window.open('sendsalida/'+a+'/'+b+'/'+c+'/'+id);
+			window.close(actual);
 		}
 	},
 	/*Metodo para mostrar al usuario el contenido de los mensajes*/
@@ -119,21 +123,13 @@ var Webmail=Webmail||
 		var para=document.getElementsByName(buscardes)[0].innerHTML;
 		var asunto=document.getElementsByName(buscarasun)[0].innerHTML;
 		var contenido=document.getElementsByName(buscarcont)[0].innerHTML;
-		document.forms["formredactar"]["correo"].value=para;
-		document.getElementById("asuntomensaje").value=asunto;
-		document.getElementById("contenidomensaje").value=contenido;
-		document.getElementById('ge').removeAttribute("onclick");
-		document.getElementById('ge').setAttribute("onclick","Webmail.safemail("+$ide+")");
-		document.getElementById('gs').removeAttribute("onclick");
-		document.getElementById('gs').setAttribute("onclick","Webmail.sendmail("+$ide+")");
-		$("#exampleModal").show(); 
+		document.forms["formrver"]["vmensajepara"].value=para;
+		document.getElementById("vasuntomensaje").value=asunto;
+		document.getElementById("vcontenidomensaje").value=contenido;
+		$("#exampleModal3").show(); 
 	},
 	cerrar:function(){
 		$("#exampleModal").hide(); 
-
-	},
-	eliminar:function($ide){
-debugger;
-		window.open('eliminar/'+$ide);
-	} 
+     	$("#exampleModal3").hide(); 
+	}
 }

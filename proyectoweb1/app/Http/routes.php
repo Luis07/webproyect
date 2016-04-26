@@ -30,7 +30,7 @@ Route::any('safesalida/{a}/{b}/{c}/{d}','MailController@safesalida');
 Route::any('sendsalida/{a}/{b}/{c}/{d}','MailController@sendsalida');
 Route::any('eliminar/{a}','MailController@eliminar');
 Route::get('confirmregistro', function () {
-	return view('confirm_register', ['email' =>'Correo invalido']);
+	return view('confirm_register', ['email' =>'']);
 });
 Route::Post('conf_registro','UserController@validarregistro');
 Route::Post('login','UserController@login');

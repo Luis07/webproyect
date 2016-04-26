@@ -1,10 +1,10 @@
 @extends('layouts.principal')
 @section('content')
+    <section class="container pospanreg">
     <form  name="form_registro" action="{{asset('registro')}}" method="POST">
-    <section class="container ">
-    <div class="col-md-12 ">
+    <div class="col-md-12 col-md-offset-3">
                 <div class="row ">
-                    <div class="sombra col-md-7 borde col-md-offset-3 "> 
+                    <div class="sombra col-md-7  col-md-offset-3 "> 
                         <h1 class=" h1 h1registro">Registro</h1>
                         <hr>
                         <p >Nombre:</p>
